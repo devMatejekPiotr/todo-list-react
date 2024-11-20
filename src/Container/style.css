@@ -1,0 +1,11 @@
+.container {
+  background-color: var(--color-bcg);
+  background-color: red;
+}
+
+.container__title {
+  border-bottom: 2px solid var(--color-betweenLine);
+  padding: 20px;
+  margin: 0;
+  color: red;
+}

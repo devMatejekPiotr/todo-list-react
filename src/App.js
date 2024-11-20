@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Buttons } from "./Buttons";
+import { Form } from "./Form";
+import { Header } from "./Header";
+import { Tasks } from "./Tasks";
+import { Section } from "./Section";
+
+const tasks = [
+  { content: "kupic bulki", done: false },
+  { content: "kupic piwko", done: true },
+];
+
+let isTaskDone = true;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header title="Lista zadań" />
+      <main className="container">
+        <Section title="Dodaj nowe zadanie" body={<Form />} />
+        <Section
+          title="Lista zadań"
+          body={<Buttons tasks={tasks} isTaskDone={isTaskDone} />}
+        />
+        <Tasks tasks={tasks} isTaskDone={isTaskDone} />
+      </main>
+    </>
   );
 }
 
