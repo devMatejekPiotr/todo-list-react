@@ -7,6 +7,7 @@ My to-do list app allows users to effortlessly add new tasks, mark them as compl
 - **HTML5**
 - **CSS3**
 - **JavaScript**
+- **React**
 
 # Getting Started with Create React App
 
