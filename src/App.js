@@ -1,4 +1,3 @@
-import "./App.css";
 import { Buttons } from "./Buttons";
 import { Form } from "./Form";
 import { Header } from "./Header";
@@ -16,14 +15,12 @@ function App() {
   return (
     <>
       <Header title="Lista zadań" />
-      <main className="container">
-        <Section title="Dodaj nowe zadanie" body={<Form />} />
-        <Section
-          title="Lista zadań"
-          body={<Buttons tasks={tasks} isTaskDone={isTaskDone} />}
-        />
-        <Tasks tasks={tasks} isTaskDone={isTaskDone} />
-      </main>
+      <Section title="Dodaj nowe zadanie" body={<Form />} />
+      <Section
+        title="Lista zadań"
+        body={<Buttons tasks={tasks} isTaskDone={isTaskDone} />}
+      />
+      <Tasks tasks={tasks} isTaskDone={isTaskDone} />
     </>
   );
 }

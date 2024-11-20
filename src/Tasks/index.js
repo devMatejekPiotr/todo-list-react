@@ -17,7 +17,7 @@ export const Tasks = ({ tasks, isTaskDone }) => {
               task.done && "list__paragraph--done"
             }`}
           >
-            ${task.content}
+            {task.content}
           </span>
           <button className="list__button list__button--remove">🗑</button>
         </li>
