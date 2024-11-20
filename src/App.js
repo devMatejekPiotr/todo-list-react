@@ -9,7 +9,7 @@ const tasks = [
   { content: "kupic piwko", done: true },
 ];
 
-let isTaskDone = true;
+let isTaskDone = false;
 
 function App() {
   return (
