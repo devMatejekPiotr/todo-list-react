@@ -20,17 +20,13 @@ function App() {
 
   const handleCheckedTask = (id) => {
     setTasks((prevTask) =>
-      prevTask.map((taskItem) => {
-        if (taskItem.id === id) {
-          return { ...taskItem, done: !taskItem.done };
-        }
-        return taskItem;
-      })
+      prevTask.map((taskItem) =>
+        taskItem.id === id ? { ...taskItem, done: !taskItem.done } : taskItem
+      )
     );
   };
 
   const completeAllTasks = () => {
-    console.log("sprawdza,");
     setTasks((prevTasks) => prevTasks.map((task) => ({ ...task, done: true })));
   };
 
@@ -38,10 +34,17 @@ function App() {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
   };
 
+  const addNewTask = (task) => {
+    setTasks((prevTasks) => [...prevTasks, task]);
+  };
+
   return (
     <>
       <Header title="Lista zadań" />
-      <Section title="Dodaj nowe zadanie" body={<Form />} />
+      <Section
+        title="Dodaj nowe zadanie"
+        body={<Form addTask={addNewTask} tasks={tasks} />}
+      />
       <Section
         title="Lista zadań"
         body={

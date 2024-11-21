@@ -8,7 +8,7 @@ export const Buttons = ({
   completeAllTasks,
 }) => {
   const isAllTasksDone = tasks.every((task) => task.done === true);
-  console.log(tasks);
+
   return (
     tasks.length > 0 && (
       <div className="buttons">
