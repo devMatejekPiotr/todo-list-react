@@ -1,11 +1,14 @@
 // import React from "react";
 import "./style.css";
 
-export const Buttons = ({ tasks, isTaskDone, handleIsTaskDone }) => {
-  console.log(handleIsTaskDone);
+export const Buttons = ({
+  tasks,
+  isTaskDone,
+  handleIsTaskDone,
+  completeAllTasks,
+}) => {
   const isAllTasksDone = tasks.every((task) => task.done === true);
-  const disabledClass = isAllTasksDone ? ".button__item--disabled" : "";
-
+  console.log(tasks);
   return (
     tasks.length > 0 && (
       <div className="buttons">
@@ -13,7 +16,10 @@ export const Buttons = ({ tasks, isTaskDone, handleIsTaskDone }) => {
           {!isTaskDone ? "ukryj ukończone" : "pokaż ukończone"}
         </button>
         <button
-          className={`button__item ${disabledClass}`}
+          onClick={completeAllTasks}
+          className={`button__item ${
+            isAllTasksDone ? "button__item--disabled" : ""
+          }`}
           disabled={isAllTasksDone}
         >
           ukończ wszystkie

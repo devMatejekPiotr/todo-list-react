@@ -5,18 +5,33 @@ import { Tasks } from "./Tasks";
 import { Section } from "./Section";
 import { useState } from "react";
 
-const tasks = [
-  { content: "kupic bulki", done: false },
-  { content: "kupic piwko", done: true },
+const taskss = [
+  { id: 1, content: "kupic bulki", done: false },
+  { id: 2, content: "kupic piwko", done: true },
 ];
-
-// let isTaskDone = false;
 
 function App() {
   const [isTaskDone, setIsTaskDone] = useState(false);
+  const [tasks, setTasks] = useState(taskss);
 
-  const handleIsTaskDone = () => {
+  const toggleHideCompletedTasks = () => {
     setIsTaskDone((prevState) => !prevState);
+  };
+
+  const handleCheckedTask = (id) => {
+    setTasks((prevTask) =>
+      prevTask.map((taskItem) => {
+        if (taskItem.id === id) {
+          return { ...taskItem, done: !taskItem.done };
+        }
+        return taskItem;
+      })
+    );
+  };
+
+  const completeAllTasks = () => {
+    console.log("sprawdza,");
+    setTasks((prevTasks) => prevTasks.map((task) => ({ ...task, done: true })));
   };
 
   return (
@@ -29,11 +44,16 @@ function App() {
           <Buttons
             tasks={tasks}
             isTaskDone={isTaskDone}
-            handleIsTaskDone={handleIsTaskDone}
+            handleIsTaskDone={toggleHideCompletedTasks}
+            completeAllTasks={completeAllTasks}
           />
         }
       />
-      <Tasks tasks={tasks} isTaskDone={isTaskDone} />
+      <Tasks
+        tasks={tasks}
+        isTaskDone={isTaskDone}
+        handleCheckedTask={handleCheckedTask}
+      />
     </>
   );
 }

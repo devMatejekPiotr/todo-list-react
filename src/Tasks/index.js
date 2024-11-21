@@ -1,15 +1,19 @@
 import "./style.css";
-export const Tasks = ({ tasks, isTaskDone }) => {
+
+export const Tasks = ({ tasks, isTaskDone, handleCheckedTask }) => {
   return (
     <ul className="list">
-      {tasks.map((task, index) => (
+      {tasks.map((task) => (
         <li
-          key={index}
+          key={task.id}
           className={`list__item ${
             isTaskDone && task.done ? "list__item--hidden" : ""
           }`}
         >
-          <button className="list__button list__button--checked">
+          <button
+            onClick={() => handleCheckedTask(task.id)}
+            className="list__button list__button--checked"
+          >
             {task.done ? "✔" : ""}
           </button>
           <span
