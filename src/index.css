@@ -22,6 +22,7 @@ body {
   padding-top: 40px;
   margin: 0 auto;
 }
+
 @media (max-width: 767px) {
   body {
     width: 90vw;
