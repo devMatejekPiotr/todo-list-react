@@ -34,6 +34,10 @@ function App() {
     setTasks((prevTasks) => prevTasks.map((task) => ({ ...task, done: true })));
   };
 
+  const handleRemoveTask = (id) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
+  };
+
   return (
     <>
       <Header title="Lista zadań" />
@@ -53,6 +57,7 @@ function App() {
         tasks={tasks}
         isTaskDone={isTaskDone}
         handleCheckedTask={handleCheckedTask}
+        handleRemoveTask={handleRemoveTask}
       />
     </>
   );

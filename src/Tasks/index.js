@@ -1,6 +1,11 @@
 import "./style.css";
 
-export const Tasks = ({ tasks, isTaskDone, handleCheckedTask }) => {
+export const Tasks = ({
+  tasks,
+  isTaskDone,
+  handleCheckedTask,
+  handleRemoveTask,
+}) => {
   return (
     <ul className="list">
       {tasks.map((task) => (
@@ -23,7 +28,12 @@ export const Tasks = ({ tasks, isTaskDone, handleCheckedTask }) => {
           >
             {task.content}
           </span>
-          <button className="list__button list__button--remove">🗑</button>
+          <button
+            onClick={() => handleRemoveTask(task.id)}
+            className="list__button list__button--remove"
+          >
+            🗑
+          </button>
         </li>
       ))}
     </ul>
