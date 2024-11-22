@@ -5,14 +5,10 @@ import { Tasks } from "./Tasks";
 import { Section } from "./Section";
 import { useState } from "react";
 
-const taskss = [
-  { id: 1, content: "kupic bulki", done: false },
-  { id: 2, content: "kupic piwko", done: true },
-];
-
 function App() {
   const [isTaskDone, setIsTaskDone] = useState(false);
-  const [tasks, setTasks] = useState(taskss);
+  const [tasks, setTasks] = useState([]);
+  console.log(tasks);
 
   const toggleHideCompletedTasks = () => {
     setIsTaskDone((prevState) => !prevState);
