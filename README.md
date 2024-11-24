@@ -2,6 +2,7 @@
 <p>
    <img src='./src/assets//images/demoTodoList.png' alt='todo task list Demo' width='500'/>
 </p>
+
 ## Description
 My to-do list app allows users to effortlessly add new tasks, mark them as completed, and remove individual items. It's a simple yet powerful tool to help you stay organized and on top of your daily goals.
 
