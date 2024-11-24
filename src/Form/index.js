@@ -7,7 +7,7 @@ export const Form = ({ tasks, addTask }) => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    
+
     setFormValue((prevValues) => ({
       ...prevValues,
       [name]: value.trim(),
@@ -30,17 +30,15 @@ export const Form = ({ tasks, addTask }) => {
   };
 
   return (
-    <>
-      <form onClick={handleSubmitNewTask} className="form">
-        <input
-          name="content"
-          value={formValue.content || ""}
-          onChange={handleInputChange}
-          className="form__input js-newTask"
-          placeholder="Co jest do zrobienia?"
-        />
-        <button className="form__button">Dodaj zadanie</button>
-      </form>
-    </>
+    <form onClick={handleSubmitNewTask} className="form">
+      <input
+        name="content"
+        value={formValue.content || ""}
+        onChange={handleInputChange}
+        className="form__input js-newTask"
+        placeholder="Co jest do zrobienia?"
+      />
+      <button className="form__button">Dodaj zadanie</button>
+    </form>
   );
 };
