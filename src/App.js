@@ -3,12 +3,17 @@ import { Form } from "./Form";
 import { Header } from "./Header";
 import { Tasks } from "./Tasks";
 import { Section } from "./Section";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [isTaskDone, setIsTaskDone] = useState(false);
-  const [tasks, setTasks] = useState([]);
-  console.log(tasks);
+  const [tasks, setTasks] = useState(
+    JSON.parse(localStorage.getItem("todoList")) || []
+  );
+
+  useEffect(() => {
+    localStorage.setItem("todoList", JSON.stringify(tasks));
+  }, [tasks]);
 
   const toggleHideCompletedTasks = () => {
     setIsTaskDone((prevState) => !prevState);
