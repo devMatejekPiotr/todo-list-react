@@ -1,9 +1,10 @@
-import { useState } from "react";
-import "./style.css";
+import { useState, useRef } from "react";
 import { createId } from "../utilis/createId";
+import { ButtonForm, InputForm, StyledForm } from "./styled";
 
 export const Form = ({ tasks, addTask }) => {
   const [formValue, setFormValue] = useState({});
+  const inputRef = useRef(null);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -26,19 +27,20 @@ export const Form = ({ tasks, addTask }) => {
     };
 
     addTask(newTask);
+    inputRef.current.focus();
     setFormValue({});
   };
 
   return (
-    <form onClick={handleSubmitNewTask} className="form">
-      <input
+    <StyledForm onClick={handleSubmitNewTask}>
+      <InputForm
         name="content"
         value={formValue.content || ""}
         onChange={handleInputChange}
-        className="form__input js-newTask"
         placeholder="Co jest do zrobienia?"
+        ref={inputRef}
       />
-      <button className="form__button">Dodaj zadanie</button>
-    </form>
+      <ButtonForm className="form__button">Dodaj zadanie</ButtonForm>
+    </StyledForm>
   );
 };

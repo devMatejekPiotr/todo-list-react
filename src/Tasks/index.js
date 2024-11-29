@@ -1,4 +1,4 @@
-import "./style.css";
+import { TaskBtn, TaskBtnRemove, TaskItem, TaskList, TaskText } from "./styled";
 
 export const Tasks = ({
   tasks,
@@ -7,35 +7,18 @@ export const Tasks = ({
   handleRemoveTask,
 }) => {
   return (
-    <ul className="list">
+    <TaskList>
       {tasks.map((task) => (
-        <li
-          key={task.id}
-          className={`list__item ${
-            isTaskDone && task.done ? "list__item--hidden" : ""
-          }`}
-        >
-          <button
-            onClick={() => handleCheckedTask(task.id)}
-            className="list__button list__button--checked"
-          >
+        <TaskItem key={task.id} done={isTaskDone && task.done}>
+          <TaskBtn onClick={() => handleCheckedTask(task.id)}>
             {task.done ? "✔" : ""}
-          </button>
-          <span
-            className={`list__paragrapf ${
-              task.done && "list__paragraph--done"
-            }`}
-          >
-            {task.content}
-          </span>
-          <button
-            onClick={() => handleRemoveTask(task.id)}
-            className="list__button list__button--remove"
-          >
+          </TaskBtn>
+          <TaskText done={task.done}>{task.content}</TaskText>
+          <TaskBtnRemove onClick={() => handleRemoveTask(task.id)}>
             🗑
-          </button>
-        </li>
+          </TaskBtnRemove>
+        </TaskItem>
       ))}
-    </ul>
+    </TaskList>
   );
 };

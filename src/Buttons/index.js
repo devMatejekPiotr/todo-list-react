@@ -1,4 +1,4 @@
-import "./style.css";
+import { ContainerBtn, Button } from "./styled";
 
 export const Buttons = ({
   tasks,
@@ -10,20 +10,14 @@ export const Buttons = ({
 
   return (
     tasks.length > 0 && (
-      <div className="buttons">
-        <button onClick={handleIsTaskDone} className="button__item">
+      <ContainerBtn>
+        <Button onClick={handleIsTaskDone}>
           {!isTaskDone ? "ukryj ukończone" : "pokaż ukończone"}
-        </button>
-        <button
-          onClick={completeAllTasks}
-          className={`button__item ${
-            isAllTasksDone ? "button__item--disabled" : ""
-          }`}
-          disabled={isAllTasksDone}
-        >
+        </Button>
+        <Button onClick={completeAllTasks} disabled={isAllTasksDone}>
           ukończ wszystkie
-        </button>
-      </div>
+        </Button>
+      </ContainerBtn>
     )
   );
 };
