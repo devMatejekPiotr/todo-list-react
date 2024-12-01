@@ -3,40 +3,22 @@ import { Form } from "./Form";
 import { Header } from "./Header";
 import { Tasks } from "./Tasks";
 import { Section } from "./Section";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useTask } from "./hooks/useTask";
 
 function App() {
   const [isTaskDone, setIsTaskDone] = useState(false);
-  const [tasks, setTasks] = useState(
-    JSON.parse(localStorage.getItem("todoList")) || []
-  );
 
-  useEffect(() => {
-    localStorage.setItem("todoList", JSON.stringify(tasks));
-  }, [tasks]);
+  const {
+    tasks,
+    handleCheckedTask,
+    completeAllTasks,
+    handleRemoveTask,
+    addNewTask,
+  } = useTask();
 
   const toggleHideCompletedTasks = () => {
     setIsTaskDone((prevState) => !prevState);
-  };
-
-  const handleCheckedTask = (id) => {
-    setTasks((prevTask) =>
-      prevTask.map((taskItem) =>
-        taskItem.id === id ? { ...taskItem, done: !taskItem.done } : taskItem
-      )
-    );
-  };
-
-  const completeAllTasks = () => {
-    setTasks((prevTasks) => prevTasks.map((task) => ({ ...task, done: true })));
-  };
-
-  const handleRemoveTask = (id) => {
-    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
-  };
-
-  const addNewTask = (task) => {
-    setTasks((prevTasks) => [...prevTasks, task]);
   };
 
   return (

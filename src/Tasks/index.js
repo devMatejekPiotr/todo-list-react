@@ -6,6 +6,7 @@ export const Tasks = ({
   handleCheckedTask,
   handleRemoveTask,
 }) => {
+
   return (
     <TaskList>
       {tasks.map((task) => (
