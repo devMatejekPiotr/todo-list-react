@@ -40,7 +40,7 @@ export const Form = ({ tasks, addTask }) => {
         placeholder="Co jest do zrobienia?"
         ref={inputRef}
       />
-      <ButtonForm className="form__button">Dodaj zadanie</ButtonForm>
+      <ButtonForm>Dodaj zadanie</ButtonForm>
     </StyledForm>
   );
 };

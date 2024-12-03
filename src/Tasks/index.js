@@ -1,12 +1,6 @@
 import { TaskBtn, TaskBtnRemove, TaskItem, TaskList, TaskText } from "./styled";
 
-export const Tasks = ({
-  tasks,
-  isTaskDone,
-  handleCheckedTask,
-  handleRemoveTask,
-}) => {
-
+export const Tasks = ({ tasks, isTaskDone, handleCheckedTask, handleRemoveTask }) => {
   return (
     <TaskList>
       {tasks.map((task) => (
