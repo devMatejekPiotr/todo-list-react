@@ -1,10 +1,13 @@
+import { useDispatch } from "react-redux";
+import { nanoid } from "@reduxjs/toolkit";
+import { addTask } from "../tasksSlice";
 import { useState, useRef } from "react";
-import { createId } from "../../../utilis/createId";
 import { ButtonForm, InputForm, StyledForm } from "./styled";
 
-export const Form = ({ tasks, addTask }) => {
+export const Form = () => {
   const [formValue, setFormValue] = useState({});
   const inputRef = useRef(null);
+  const dispatch = useDispatch();
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -20,13 +23,14 @@ export const Form = ({ tasks, addTask }) => {
 
     if (!formValue.content) return;
 
-    const newTask = {
-      id: createId(tasks),
-      content: formValue.content,
-      done: false,
-    };
+    dispatch(
+      addTask({
+        id: nanoid(),
+        content: formValue.content,
+        done: false,
+      })
+    );
 
-    addTask(newTask);
     inputRef.current.focus();
     setFormValue({});
   };
