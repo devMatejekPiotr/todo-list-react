@@ -1,6 +1,6 @@
 # ToDo Task List 📋✏️
 <p>
-   <img src='./src/assets//images/demoTodoList.png' alt='todo task list Demo' width='500'/>
+   <img src='../todo-list/demoTodoList.png' alt='todo task list Demo' width='500'/>
 </p>
 
 ## Description
