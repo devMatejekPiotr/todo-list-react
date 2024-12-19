@@ -14,7 +14,7 @@ export const StyledForm = styled.form`
   }
 `;
 
-export const ButtonForm = styled.button`
+export const Button = styled.button`
   background-color: teal;
   border: none;
   color: ${({ theme }) => theme.colors.white};
@@ -28,7 +28,7 @@ export const ButtonForm = styled.button`
   }
 `;
 
-export const InputForm = styled.input`
+export const Input = styled.input`
   flex-grow: 1;
   padding: 8px;
   border: 2px solid ${({ theme }) => theme.colors.grey};

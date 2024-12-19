@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { completeAllTasks, selectTask, toggleHideDone } from "../tasksSlice";
-import { ContainerBtn, Button } from "./styled";
+import { Container, Button } from "./styled";
 
 export const Buttons = () => {
   const { tasks, hideDone } = useSelector(selectTask);
@@ -10,7 +10,7 @@ export const Buttons = () => {
 
   return (
     tasks.length > 0 && (
-      <ContainerBtn>
+      <Container>
         <Button onClick={() => dispatch(toggleHideDone())}>
           {!hideDone ? "ukryj ukończone" : "pokaż ukończone"}
         </Button>
@@ -20,7 +20,7 @@ export const Buttons = () => {
         >
           ukończ wszystkie
         </Button>
-      </ContainerBtn>
+      </Container>
     )
   );
 };

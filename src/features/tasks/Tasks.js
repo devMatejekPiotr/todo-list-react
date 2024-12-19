@@ -9,7 +9,7 @@ function Tasks() {
     <>
       <Header title="Lista zadań" />
       <Section title="Dodaj nowe zadanie" body={<Form />} />
-      <Section title="Lista zadań" body={<Buttons />} />
+      <Section feature={true} title="Lista zadań" body={<Buttons />} />
       <TasksList />
     </>
   );

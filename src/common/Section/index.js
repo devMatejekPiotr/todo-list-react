@@ -1,9 +1,9 @@
 import { StyledSection, SectionHeader } from "./styled";
 
-export const Section = ({ title, body }) => {
+export const Section = ({ title, body, feature }) => {
   return (
-    <StyledSection>
-      <SectionHeader>{title}</SectionHeader>
+    <StyledSection feature={feature}>
+      <SectionHeader feature={feature}>{title}</SectionHeader>
       {body}
     </StyledSection>
   );

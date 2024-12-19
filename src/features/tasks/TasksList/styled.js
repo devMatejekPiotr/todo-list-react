@@ -7,10 +7,10 @@ export const TaskList = styled.ul`
   margin: 0;
 `;
 
-export const TaskItem = styled.li`
+export const Task = styled.li`
   border-bottom: 2px solid ${({ theme }) => theme.colors.grey};
   padding: 10px 0;
-  display: ${({ done }) => (done ? "none" : "flex")};
+  display: ${({ $done }) => ($done ? "none" : "flex")};
   justify-content: space-between;
   align-items: center;
 `;
@@ -27,7 +27,7 @@ export const DefaultStyledBtn = styled.button`
   cursor: pointer;
 `;
 
-export const TaskBtn = styled(DefaultStyledBtn)`
+export const Button = styled(DefaultStyledBtn)`
   background-color: ${({ theme }) => theme.colors.taskBtn};
   margin: 0 10px;
   transition: background-color 0.2s ease;
@@ -37,7 +37,7 @@ export const TaskBtn = styled(DefaultStyledBtn)`
   }
 `;
 
-export const TaskBtnRemove = styled(DefaultStyledBtn)`
+export const RemoveButton = styled(DefaultStyledBtn)`
   background-color: ${({ theme }) => theme.colors.taskBtnRemove};
   margin: 0 10px;
   transition: background-color 0.2s ease;
@@ -47,7 +47,7 @@ export const TaskBtnRemove = styled(DefaultStyledBtn)`
   }
 `;
 
-export const TaskText = styled.span`
+export const Text = styled.span`
   flex-grow: 1;
-  text-decoration: ${({ done }) => (done ? "line-through" : "none")};
+  text-decoration: ${({ $done }) => ($done ? "line-through" : "none")};
 `;
